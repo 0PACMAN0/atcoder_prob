@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+using namespace std;
+long N=200001;
+long in[N];
+int n,m;
+void calculate(int a1,int a2){
+	int count=0;
+sort(in.begin(),in.end());
+for(int i=0;i<m;i++){
+	if(in[i]<=a2&&in[i]>=a1)
+		continue;
+	else
+	{
+		count+=(abs(in[i]-a1)>=abs(in[i]-a2))?abs(in[i]-a2):abs(in[i]-a1);
+		if(in[i]<=a1)a1=in[i];
+		else a2=in[i];
+	}
+	cout<<count;
+}
+
+}
+int main()
+{	
+	
+	cin>>n>>m;
+	int a1,a2;
+	cin>>a1>>a2;		
+	calculate(a1,a2);
+	for(int i=0;i<n-2;i++)
+	cin>>in[i];
+	return 0;
+
+}
+
